@@ -1,0 +1,85 @@
+<div class="contact">
+  <form [formGroup]="registerForm" (ngSubmit)="test()">
+    <div>
+      <label for="name">Name:</label>
+      <input formControlName="name" type="text" id="name" name="name" />
+      <div *ngIf="registerForm.get('name')?.errors && registerForm.get('name')?.touched" class="alert alert-danger">
+        <p *ngIf="registerForm.get('name')?.errors?.['required']">
+          name is requered
+        </p>
+        <p *ngIf="registerForm.get('name')?.errors?.['maxLength']">
+          max length 9
+        </p>
+        <p *ngIf="registerForm.get('name')?.errors?.['minLength']">
+          min length 3
+        </p>
+      </div>
+    </div>
+
+    
+    <div>
+      <label for="email">Email:</label>
+      <input formControlName="email" type="email" id="email" name="email" />
+      <div *ngIf="registerForm.get('email')?.errors && registerForm.get('email')?.touched" class="alert alert-danger">
+        <p *ngIf="registerForm.get('email')?.errors?.['required']">
+          email is requered
+        </p>
+        <p *ngIf="registerForm.get('email')?.errors?.['email']">
+          please enter the email
+        </p>
+      </div>
+    </div>
+
+    <div>
+      <label for="password">Password:</label>
+      <input
+        formControlName="password"
+        type="password"
+        id="password"
+        name="password"
+      />
+    </div>
+    
+    <div>
+      <label for="password">rePassword:</label>
+      <input
+        formControlName="rePassword"
+        type="password"
+        id="password"
+        name="password"
+      />
+
+      <div *ngIf="registerForm.get('rePassword')?.errors && registerForm.get('rePassword')?.touched" class="alert alert-danger">
+        <p *ngIf="registerForm.get('rePassword')?.errors?.['required']">
+          rePassword is requered
+        </p>
+        <p *ngIf="registerForm.get('rePassword')?.errors?.['pattern']">
+          please enter the rePassword
+        </p>
+      </div>
+    </div>
+
+    <button
+      [disabled]="registerForm.invalid"
+      type="submit"
+      class="btn btn-success"
+    >
+      log in
+    </button>
+    
+  </form>
+</div>
+
+
+
+ 
+
+
+
+
+
+
+
+
+  
+
